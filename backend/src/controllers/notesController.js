@@ -4,7 +4,7 @@ import Note from "../models/Notes.js";
 
 export async function getAllNotes(req, res) {
     try{
-       const notes = (await Note.find()).sort({ createdAt: -1 }); //-1 will sort in descending order newest first
+       const notes = await Note.find().sort({ createdAt: -1 }); // -1 sorts newest first
 
         res.status(200).json(notes);
     }
